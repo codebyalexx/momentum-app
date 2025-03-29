@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { LogInIcon } from "lucide-react";
-import { signIn } from "@/lib/auth";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -24,16 +24,14 @@ export default function Home() {
           Track your overall goals, gym progression, cashflow
         </p>
         <div>
-          <Button
-            className="w-full bg-[#BEE510] text-[#0D4225] hover:bg-[#a8cd0e] cursor-pointer"
-            size={"lg"}
-            onClick={async () => {
-              "use server";
-              await signIn("google");
-            }}
-          >
-            <LogInIcon /> Go to Dashboard
-          </Button>
+          <Link href={"/dashboard"}>
+            <Button
+              className="w-full bg-[#BEE510] text-[#0D4225] hover:bg-[#a8cd0e] cursor-pointer"
+              size={"lg"}
+            >
+              <LogInIcon /> Go to Dashboard
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
